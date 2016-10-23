@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+    <script src="scripts/app/app.js"></script>
+    <title>FlashBoard - Flights' Dashboard</title>
+</head>
+<body data-ng-app="flightApp" data-ng-controller="ScheduleController">
+    <div id="myHome" class="container">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Flashboard</a>
+                <button class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a class="link" href="#">Home</a></li>
+                    <li><a class="link" href="#section1">Schedules</a></li>
+                    <li><a class="link" href="#section2">Add Schedule</a></li>
+                    <li><a class="link" href="#section3">Update Schedule</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" class="link"><span class="glyphicon glyphicon-user"></span>Welcome Guest!</a></li>
+                    <li><a href="#" class="link"><span class="glyphicon glyphicon-log-in"></span>Log In</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+
+    <br />
+    <br />
+    <br />
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Today's Flights Schedule</div>
+            <div class="panel-body">
+                <div id="section1" class="text-center">
+                    <label class="control-label col-sm-2" for="SearchGate">Filter by Gate:</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" data-ng-model="searchGate" data-ng-change="getSchedulesSearch()">
+                            <option>All</option>
+                            <option data-ng-repeat="s in schedulesSearch | distinct : 'Gate'" value="{{s.Gate}}">{{s.Gate}}</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-12">
+                        <hr />
+                    </div>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Gate</th>
+                                <th>Flight No</th>
+                                <th>Arrival</th>
+                                <th>Departure</th>
+                                <th>Status</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="r in schedulesSearchResult">
+                                <td>{{ r.Gate }}</td>
+                                <td>{{ r.FlightNumber }}</td>
+                                <td>{{ r.Arrival }}</td>
+                                <td>{{ r.Departure }}</td>
+                                <td>{{ r.Status }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">Add Schedule</div>
+            <div class="panel-body">
+                <div id="section2" class="text-center">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="gate">Gate:</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" data-ng-model="addFlight.gate">
+                                    <option data-ng-repeat="s in schedules | distinct : 'Gate'" value="{{s.Gate}}">{{s.Gate}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="flightno">Flight Number:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" data-ng-model="addFlight.flightno" placeholder="Enter Flight No." />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="arrival">Arrival Time:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" data-ng-model="addFlight.arrival" placeholder="yyyy-MM-ddThh:mm:ss" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="departure">Departure Time:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" data-ng-model="addFlight.departure" placeholder="yyyy-MM-ddThh:mm:ss" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="status">Status:</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" data-ng-model="addFlight.status">
+                                    <option data-ng-repeat="s in statusList" value="{{s}}">{{s}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-1 col-sm-5">
+                                <button type="submit" class="btn btn-md btn-primary" data-ng-click="resetFields(addFlight)">Cancel</button>
+                            </div>
+                            <div class="col-sm-offset-1 col-sm-5">
+                                <button type="submit" class="btn btn-md btn-primary" data-ng-click="addSchedule()">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">Update Schedule</div>
+            <div class="panel-body">
+                <div id="section3" class="text-center">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="email">Gate:</label>
+                            <div class="col-sm-4">
+                                <select class="form-control" data-ng-model="flight.distinctGate" data-ng-change="getSchedulesPerGate()">
+                                    <option data-ng-repeat="s in schedules | distinct : 'Gate'" value="{{s.Gate}}">{{s.Gate}}</option>
+                                </select>
+                            </div>
+                            <label class="control-label col-sm-2" for="flightno">Flight Number:</label>
+                            <div class="col-sm-4">
+                                <select class="form-control" data-ng-model="flight.flightno" data-ng-change="getTime()">
+                                    <option data-ng-repeat="s in schedulesPerGate" value="{{s.FlightNumber}}">{{s.FlightNumber}}</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="gate">New Gate:</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" data-ng-model="flight.gate">
+                                    <option data-ng-repeat="s in schedules | distinct : 'Gate'" value="{{s.Gate}}">{{s.Gate}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="arrival">New Arrival Time:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" data-ng-model="flight.arrival" placeholder="yyyy-MM-ddThh:mm:ss" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="departure">New Departure Time:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" data-ng-model="flight.departure" placeholder="yyyy-MM-ddThh:mm:ss" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="status">New Status</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" data-ng-model="flight.status">
+                                    <option data-ng-repeat="s in statusList" value="{{s}}">{{s}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-1 col-sm-5">
+                                <button type="submit" class="btn btn-md btn-primary" data-ng-click="resetFields(flight)">Cancel</button>
+                            </div>
+                            <div class="col-sm-offset-1 col-sm-5">
+                                <button type="submit" class="btn btn-md btn-primary" data-ng-click="updateSchedule()">Save</button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center">
+        <a href="#myHome" data-toggle="tooltip" data-original-title="Go To Top"><span class="glyphicon glyphicon-chevron-up"></span></a>
+        <h3>FalshBoard - Flights' Dashboard</h3>
+    </footer>
+
+
+</body>
+</html>

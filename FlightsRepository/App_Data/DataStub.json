@@ -1,0 +1,147 @@
+[ {
+			"FlightNumber": "PA143",
+			"Arrival": "2016-09-20T04:00:00",
+			"Departure": "2016-09-20T04:29:00",
+			"Gate": "1",
+			"Status": "Scheduled"
+	},
+	{
+			"FlightNumber": "GA843",
+			"Arrival": "2016-09-20T04:35:00",
+			"Departure": "2016-09-20T05:04:00",
+			"Gate": "1",
+			"Status": "Scheduled"
+	},
+	{
+			"FlightNumber": "UA143",
+			"Arrival": "2016-09-20T05:10:00",
+			"Departure": "2016-09-20T05:39:00",
+			"Gate": "1",
+			"Status": "Scheduled"
+	},
+	{
+			"FlightNumber": "RA143",
+			"Arrival": "2016-09-20T05:50:00",
+			"Departure": "2016-09-20T06:19:00",
+			"Gate": "1",
+			"Status": "Scheduled"
+	},
+	{
+			"FlightNumber": "TA148",
+			"Arrival": "2016-09-20T06:20:00",
+			"Departure": "2016-09-20T06:49:00",
+			"Gate": "1",
+			"Status": "Scheduled"
+	},
+{
+			"FlightNumber": "VA143",
+			"Arrival": "2016-09-20T11:00:00",
+			"Departure": "2016-09-20T11:29:00",
+			"Gate": "1",
+			"Status": "Scheduled"
+	},
+	 {
+			"FlightNumber": "VA234",
+			"Arrival": "2016-09-20T12:00:00",
+			"Departure": "2016-09-20T12:29:00",
+			"Gate": "1",
+			"Status": "Scheduled"
+	},
+	 {
+			"FlightNumber": "QA123",
+			"Arrival": "2016-09-20T12:30:00",
+			"Departure": "2016-09-20T12:59:00",
+			"Gate": "1",
+			"Status": "Scheduled"
+	},
+	{
+			"FlightNumber": "VA145",
+			"Arrival": "2016-09-20T14:00:00",
+			"Departure": "2016-09-20T14:29:00",
+			"Gate": "1",
+			"Status": "Scheduled"
+	},
+	 {
+			"FlightNumber": "IA234",
+			"Arrival": "2016-09-20T14:30:00",
+			"Departure": "2016-09-20T14:59:00",
+			"Gate": "1",
+			"Status": "Scheduled"
+	},
+	
+	
+	{
+			"FlightNumber": "VA149",
+			"Arrival": "2016-09-20T10:00:00",
+			"Departure": "2016-09-20T10:29:00",
+			"Gate": "2",
+			"Status": "Scheduled"
+	},
+	 {
+			"FlightNumber": "VA239",
+			"Arrival": "2016-09-20T11:00:00",
+			"Departure": "2016-09-20T11:29:00",
+			"Gate": "2",
+			"Status": "Scheduled"
+	},
+	 {
+			"FlightNumber": "QA129",
+			"Arrival": "2016-09-20T11:30:00",
+			"Departure": "2016-09-20T11:59:00",
+			"Gate": "2",
+			"Status": "Scheduled"
+	},
+	{
+			"FlightNumber": "VA199",
+			"Arrival": "2016-09-20T12:20:00",
+			"Departure": "2016-09-20T12:49:00",
+			"Gate": "2",
+			"Status": "Scheduled"
+	},
+	 {
+			"FlightNumber": "IA239",
+			"Arrival": "2016-09-20T14:10:00",
+			"Departure": "2016-09-20T14:39:00",
+			"Gate": "2",
+			"Status": "Scheduled"
+	},
+	 {
+			"FlightNumber": "MA239",
+			"Arrival": "2016-09-20T14:40:00",
+			"Departure": "2016-09-20T15:09:00",
+			"Gate": "2",
+			"Status": "Scheduled"
+	},
+	 {
+			"FlightNumber": "LA539",
+			"Arrival": "2016-09-20T15:15:00",
+			"Departure": "2016-09-20T15:44:00",
+			"Gate": "2",
+			"Status": "Scheduled"
+	},
+	 {
+			"FlightNumber": "LA239",
+			"Arrival": "2016-09-20T16:05:00",
+			"Departure": "2016-09-20T16:34:00",
+			"Gate": "2",
+			"Status": "Scheduled"
+	},
+	 {
+			"FlightNumber": "KA539",
+			"Arrival": "2016-09-20T16:40:00",
+			"Departure": "2016-09-20T17:09:00",
+			"Gate": "2",
+			"Status": "Scheduled"
+	},
+	 {
+			"FlightNumber": "JA259",
+			"Arrival": "2016-09-20T17:10:00",
+			"Departure": "2016-09-20T17:39:00",
+			"Gate": "2",
+			"Status": "Scheduled"
+	}
+	
+
+
+	
+]
